@@ -11,18 +11,20 @@ import numpy as np
 
 x = np.arange(-3, 3, 0.01)
 
-fig = plt.figure()#figsize=(20,10))
+fig = plt.figure(figsize=(20,10))
 ax = fig.add_subplot(111)
-plt.ion()
 j = 0
+k = 0
 y = []
-Time = 0.5
+Time = 0.05
 
-while j < 10:
-    y = y + [ (np.sin(np.pi*x*j)  / (np.pi*x*j) )**2 ]
-    line, = ax.plot(x, y[j], 'b')
+while j < 200:
+    y = y + [ (np.sin(np.pi*x*k)  / (np.pi*x*k) )**2 ]
+    line, = ax.plot(x, y[j], 'b') # all the plots will be blue
     plt.draw()
-    plt.pause(0.5)
-    line.remove()
+    plt.pause(Time)
+    print j
+    #line.remove()
     j = j + 1
+    k = k + 0.01*j
 
